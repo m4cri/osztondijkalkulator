@@ -1,0 +1,299 @@
+:root {
+    --md-sys-color-primary: #1B58CE;
+    --md-sys-color-surface-container-high: #EFF4F9;
+    --md-sys-color-error-container: #931114;
+    --md-sys-color-error: #ffb2aa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding-right: 95px;
+    padding-left: 95px;
+    padding-top: 85px;
+    margin: 0;
+}
+
+/* Felső header */
+
+.alapheader {
+    /*Általános header dizájn*/
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#foheader {
+    margin-bottom: 68px;
+}
+
+#focim {
+    position: relative;
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    margin: 0;
+
+    color: #000000;
+
+}
+
+/* Átlagok */
+
+@media (max-width: 660px) {
+    body {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+
+}
+
+@media (max-width: 995px) {
+
+    /* 995px szélesség alatt közepes */
+    .adathatter {
+        /* Általános kék háttér az adatoknak */
+        padding: 40px;
+        margin-bottom: 50px;
+
+        background-color: rgba(231, 239, 254, 0.76);
+        border-radius: 48px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Jobb oldali átlag szövegek */
+    #atlagok {
+        /* Táblázat */
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    .atlag {
+        /* Táblázat cellák */
+        height: auto;
+        width: auto;
+        margin-bottom: 20px;
+    }
+
+    #kreditek {
+        margin-bottom: 30px;
+    }
+}
+
+/* 995px szélesig nagy */
+.adathatter {
+    /* Általános kék háttér az adatoknak */
+    padding: 80px;
+    margin-bottom: 50px;
+
+    background-color: rgba(231, 239, 254, 0.76);
+    border-radius: 48px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Jobb oldali átlag szövegek */
+#atlagok {
+    /* Táblázat */
+    height: 100%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #000000;
+
+
+    table-layout: auto;
+}
+
+.atlag {
+    /* Táblázat cellák */
+    height: 128px;
+    width: 323px;
+    /* padding: 50px; */
+}
+
+
+/* Bal oldali kredit circular progress */
+#kreditek {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 256px;
+    height: 256px;
+}
+
+#kreditszamtarto {
+    position: absolute;
+}
+
+
+#fokredit {
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    margin: 0;
+
+    color: #000000;
+}
+
+#perkredit {
+
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0;
+
+    color: #000000;
+}
+
+#kreditprogress {
+    --md-circular-progress-size: 256px;
+    --md-circular-progress-active-indicator-width: 15;
+}
+
+/* Tantárgyak */
+
+#targyakalcim {
+
+    position: relative;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    margin: 0;
+
+    color: #000000;
+
+
+}
+
+#tantargyak {
+    padding: 30px;
+    display: block;
+    overflow-x: auto;
+}
+
+/* Táblázat a headernek */
+#tantargyheader {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #000000;
+
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Cellák */
+#tantargytd {
+    text-align: center;
+    padding-left: 20px;
+    /* padding-left: clamp(30px,30vw,1000px);
+    padding-right: clamp(30px,30vw,1000px); */
+}
+
+#kreditd {
+    width: 170px;
+    text-align: center;
+}
+
+#jegytd {
+    /*right 153px,left 192px*/
+    width: 150px;
+    text-align: right;
+    padding-right: 100px;
+}
+
+#tantargytablazat {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #000000;
+
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/*Footer*/
+
+footer {
+    text-align: center;
+}
+
+#githublinksvg {
+    height: 48px;
+    width: 48px;
+}
+
+#githublinksvg path:hover {
+    height: 48px;
+    width: 48px;
+    fill: #3c3c3c;
+}
+
+.md-snackbar {
+    font-family: 'Roboto';
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--md-sys-color-error-container, #313033);
+    color: var(--md-sys-color-error, #f4eff4);
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+
+    visibility: hidden;
+}
+
+.alapinfo {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+
+    background-color: #c1e6ff;
+    border-radius: 24px;
+
+    display: flex;
+    text-align: start;
+}
