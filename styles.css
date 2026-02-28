@@ -261,12 +261,6 @@ footer {
     width: 48px;
 }
 
-#githublinksvg path:hover {
-    height: 48px;
-    width: 48px;
-    fill: #3c3c3c;
-}
-
 .md-snackbar {
     font-family: 'Roboto';
     position: fixed;
@@ -289,11 +283,13 @@ footer {
 .alapinfo {
     display: none;
     margin-top: 20px;
-    padding: 10px;
+    padding: 10px 20px 10px 10px;
 
     background-color: #c1e6ff;
     border-radius: 24px;
 
     display: flex;
-    text-align: start;
+    justify-content: space-between;
+    text-align: end;
+    align-items: center;
 }

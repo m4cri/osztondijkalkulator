@@ -7,7 +7,7 @@
   <title>Ösztöndíj és átlag kalkulátor</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta content="Modern és könnyű kreditindex és ösztöndíj számító." name="description">
+  <meta name="description" content="Modern és könnyű kreditindex és ösztöndíj számító.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="src/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
   <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 
   <!-- Goatcounter importálása -->
-   <script data-goatcounter="https://m4rci.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://m4rci.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <!-- Saját scriptek -->
   <script src="lib/atlag.js" defer></script>
@@ -53,6 +53,19 @@
           d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z" />
       </svg>
     </md-filled-button>
+
+    <!-- Köszöntő ablak -->
+     <md-dialog id="dialog_koszonto" open>
+      <div slot="headline">
+        Üdvözöllek az ösztöndíj és átlag kalkulátorban!
+      </div>
+      <div slot="content">
+        Ez egy modern és könnyű kreditindex és ösztöndíj számító, amely segít nyomon követni a tanulmányi előrehaladásodat. A folytatáshoz kattints az "Importálás" gombra, és kövesd a megjelenő utasításokat vagy add hozzá eredményeid manuálisan a "Hozzáadás" gombbal. A kalkulátor automatikusan kiszámolja a kreditindexet, súlyozott átlagot, korrigált kreditindexet és az ösztöndíj összegét a megadott adatok alapján.
+      </div>
+      <div slot="actions">
+        <md-filled-button id="koszonto_gomb">Kezdés</md-filled-button>
+      </div>
+    </md-dialog>
 
     <!-- Importálás ablak -->
 
@@ -136,7 +149,7 @@
 
       <!-- Tantárgy adatok táblázat -->
       <table id="tantargytablazat">
-        <!-- Ezt a program tölti fel -->
+        <!-- Ezt a program tölti fel-->
       </table>
     </div>
 
@@ -146,21 +159,36 @@
 
   <footer>
     <!-- Github repo link -->
-    <a href="https://github.com/m4cri/osztondijkalkulator"><svg id="githublinksvg" width="100%" height="100%" viewBox="0 0 128 128"
+    <md-icon-button target="_blank" href="https://github.com/m4cri/osztondijkalkulator">
+      <md-icon id="githublinksvg">
+        <svg width="100%" height="100%" viewBox="0 0 128 128"
         fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M56.7937 84.9688C44.4187 83.4688 35.7 74.5625 35.7 63.0313C35.7 58.3438 37.3875 53.2813 40.2 49.9063C38.9812 46.8125 39.1687 40.25 40.575 37.5313C44.325 37.0625 49.3875 39.0313 52.3875 41.75C55.95 40.625 59.7 40.0625 64.2937 40.0625C68.8875 40.0625 72.6375 40.625 76.0125 41.6563C78.9187 39.0313 84.075 37.0625 87.825 37.5313C89.1375 40.0625 89.325 46.625 88.1062 49.8125C91.1062 53.375 92.7 58.1563 92.7 63.0313C92.7 74.5625 83.9812 83.2813 71.4187 84.875C74.6062 86.9375 76.7625 91.4375 76.7625 96.5938L76.7625 106.344C76.7625 109.156 79.1062 110.75 81.9187 109.625C98.8875 103.156 112.2 86.1875 112.2 65.1875C112.2 38.6563 90.6375 17 64.1062 17C37.575 17 16.2 38.6562 16.2 65.1875C16.2 86 29.4187 103.25 47.2312 109.719C49.7625 110.656 52.2 108.969 52.2 106.438L52.2 98.9375C50.8875 99.5 49.2 99.875 47.7 99.875C41.5125 99.875 37.8562 96.5 35.2312 90.2188C34.2 87.6875 33.075 86.1875 30.9187 85.9063C29.7937 85.8125 29.4187 85.3438 29.4187 84.7813C29.4187 83.6563 31.2937 82.8125 33.1687 82.8125C35.8875 82.8125 38.2312 84.5 40.6687 87.9688C42.5437 90.6875 44.5125 91.9063 46.8562 91.9063C49.2 91.9063 50.7 91.0625 52.8562 88.9063C54.45 87.3125 55.6687 85.9063 56.7937 84.9688Z"
           fill="black" />
       </svg>
-    </a>
+      </md-icon>
+    </md-icon-button>
     <!--Hiba snackbarok-->
     <div id="kreditsnackbar" class="md-snackbar">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffb2aa">
+        <path
+          d="M508.5-291.5Q520-303 520-320t-11.5-28.5Q497-360 480-360t-28.5 11.5Q440-337 440-320t11.5 28.5Q463-280 480-280t28.5-11.5ZM440-440h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+      </svg>
       <span class="uzenet">A kreditindex csak pozitív érték lehet</span>
     </div>
     <div id="jegysnackbar" class="md-snackbar">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffb2aa">
+        <path
+          d="M508.5-291.5Q520-303 520-320t-11.5-28.5Q497-360 480-360t-28.5 11.5Q440-337 440-320t11.5 28.5Q463-280 480-280t28.5-11.5ZM440-440h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+      </svg>
       <span class="uzenet">A jegy csak 1 és 5 közötti érték lehet</span>
     </div>
     <div id="karsnackbar" class="md-snackbar">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffb2aa">
+        <path
+          d="M508.5-291.5Q520-303 520-320t-11.5-28.5Q497-360 480-360t-28.5 11.5Q440-337 440-320t11.5 28.5Q463-280 480-280t28.5-11.5ZM440-440h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+      </svg>
       <span class="uzenet">A fájl és kar kiválasztása kötelező</span>
     </div>
   </footer>
