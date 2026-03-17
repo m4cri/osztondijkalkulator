@@ -31,7 +31,7 @@ body {
     margin-bottom: 68px;
 }
 
-#focim {
+h1 {
     position: relative;
 
     font-family: "Roboto", sans-serif;
@@ -48,50 +48,6 @@ body {
 
 /* Átlagok */
 
-@media (max-width: 660px) {
-    body {
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-
-
-}
-
-@media (max-width: 995px) {
-
-    /* 995px szélesség alatt közepes */
-    .adathatter {
-        /* Általános kék háttér az adatoknak */
-        padding: 40px;
-        margin-bottom: 50px;
-
-        background-color: rgba(231, 239, 254, 0.76);
-        border-radius: 48px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Jobb oldali átlag szövegek */
-    #atlagok {
-        /* Táblázat */
-        font-size: 18px;
-        line-height: 21px;
-    }
-
-    .atlag {
-        /* Táblázat cellák */
-        height: auto;
-        width: auto;
-        margin-bottom: 20px;
-    }
-
-    #kreditek {
-        margin-bottom: 30px;
-    }
-}
 
 /* 995px szélesig nagy */
 .adathatter {
@@ -250,6 +206,16 @@ body {
     border-collapse: collapse;
 }
 
+.gradeTD{
+    width: 133px;
+    text-align: center;
+}
+
+.creditTD {
+    width: 132px;
+    text-align: center;
+}
+
 /*Footer*/
 
 footer {
@@ -288,8 +254,116 @@ footer {
     background-color: #c1e6ff;
     border-radius: 24px;
 
-    display: flex;
     justify-content: space-between;
     text-align: end;
-    align-items: center;
+}
+
+#fab_import{
+    display: none;
+}
+
+@media (max-width: 995px) {
+
+    /* 995px szélesség alatt közepes */
+    .adathatter {
+        /* Általános kék háttér az adatoknak */
+        padding: 40px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #kreditek {
+        margin-bottom: 30px;
+    }
+
+        .atlag {
+        text-align: center;
+    }
+
+    /* Az adatok cellái */
+    .gradeTD{
+    width: 50px;
+    text-align: center;
+    }
+
+    .creditTD {
+        width: 70px;
+        text-align: center;
+    }
+
+    #kreditd {
+        width: 80px;
+        text-align: center;
+    }
+    #jegytd {
+        /*right 153px,left 192px*/
+        width: 50px;
+        text-align: center;
+        padding-right: 50px;
+    }
+    #tantargyak{
+        padding: 20px 10px;
+    }
+    #tantargyheader {
+        align-items: end;
+    }
+}
+
+
+
+/*Mobil nézet*/
+@media (max-width: 660px) {
+    body {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    #gomb_import{
+        display: none;
+    }
+    #fab_import{
+        display: block;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 1000;
+    }
+
+    #tantargyheader {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: end;
+    }
+
+    /* Az adatok cellái */
+    .gradeTD{
+    width: 50px;
+    text-align: center;
+    }
+
+    .creditTD {
+        width: 50px;
+        text-align: center;
+    }
+
+    #kreditd {
+        width: 70px;
+        text-align: center;
+    }
+
+    #jegytd {
+        /*right 153px,left 192px*/
+        width: 50px;
+        text-align: center;
+        padding-right: 55px;
+    }
+    #tantargyak{
+        padding: 20px 10px;
+    }
 }

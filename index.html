@@ -45,7 +45,7 @@
 <body>
   <!-- Fő header -->
   <header class="alapheader" id="foheader">
-    <p id="focim">Ösztöndíj és átlag kalkulátor</p>
+    <h1>Ösztöndíj és átlag kalkulátor</h1>
     <md-filled-button id="gomb_import">
       Importálás
       <svg xmlns="http://www.w3.org/2000/svg" slot="icon" viewBox="0 -960 960 960">
@@ -85,7 +85,7 @@
         </ol>
         <md-filled-button id="import_gomb_fajlvalasztas" type="button">Fájl kiválasztása</md-filled-button>
         <md-filled-button id="import_gomb_iskolavalasztas" type="button">Kar kiválasztása</md-filled-button>
-        <md-menu id="karvalasztas_menu" anchor="import_gomb_iskolavalasztas" positioning="fixed">
+        <md-menu id="karvalasztas_menu" anchor="import_gomb_iskolavalasztas" positioning="popover">
           <md-menu-item data-value="elteik">
             <div slot="headline">ELTE IK</div>
           </md-menu-item>
@@ -158,6 +158,13 @@
   </main>
 
   <footer>
+    <md-fab label="Importálás" id="fab_import">
+      <md-icon slot="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z" />
+        </svg>
+      </md-icon>
+    </md-fab>
     <!-- Github repo link -->
     <md-icon-button target="_blank" href="https://github.com/m4cri/osztondijkalkulator">
       <md-icon id="githublinksvg">
