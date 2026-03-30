@@ -16,6 +16,12 @@ body {
     margin: 0;
 }
 
+#checkbox_wrap{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 /* Felső header */
 
 .alapheader {

@@ -32,7 +32,7 @@
   </script>
 
   <!-- SheetJS importálása -->
-  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" defer></script>
 
   <!-- Goatcounter importálása -->
   <script data-goatcounter="https://m4rci.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -54,50 +54,6 @@
       </svg>
     </md-filled-button>
 
-    <!-- Köszöntő ablak -->
-     <md-dialog id="dialog_koszonto" open>
-      <div slot="headline">
-        Üdvözöllek az ösztöndíj és átlag kalkulátorban!
-      </div>
-      <div slot="content">
-        Ez egy modern és könnyű kreditindex és ösztöndíj számító, amely segít nyomon követni a tanulmányi előrehaladásodat. A folytatáshoz kattints az "Importálás" gombra, és kövesd a megjelenő utasításokat vagy add hozzá eredményeid manuálisan a "Hozzáadás" gombbal. A kalkulátor automatikusan kiszámolja a kreditindexet, súlyozott átlagot, korrigált kreditindexet és az ösztöndíj összegét a megadott adatok alapján.
-      </div>
-      <div slot="actions">
-        <md-filled-button id="koszonto_gomb">Kezdés</md-filled-button>
-      </div>
-    </md-dialog>
-
-    <!-- Importálás ablak -->
-
-    <md-dialog id="dialog_import">
-      <div slot="headline">
-        Adatok importálása Neptunból
-      </div>
-      <form slot="content" id="importform">
-        Lépések:
-        <ol>
-          <li>Lépj be a Neptunba</li>
-          <li>Válaszd ki a Menüből a Tanulmányok > Előrehaladás menüpontot</li>
-          <li>Nyitsd meg a Törzslap opciót és válaszd ki a félévet</li>
-          <li>A jegyek fölött nyitsd meg a ...-menüt és kattints az Export-gombra</li>
-          <li>Válaszd ki az alábbi menüben a letöltött fájlt és a karodat</li>
-          <li>Kattints a Betöltés gombra</li>
-        </ol>
-        <md-filled-button id="import_gomb_fajlvalasztas" type="button">Fájl kiválasztása</md-filled-button>
-        <md-filled-button id="import_gomb_iskolavalasztas" type="button">Kar kiválasztása</md-filled-button>
-        <md-menu id="karvalasztas_menu" anchor="import_gomb_iskolavalasztas" positioning="popover">
-          <md-menu-item data-value="elteik">
-            <div slot="headline">ELTE IK</div>
-          </md-menu-item>
-        </md-menu>
-        <div class="alapinfo" id="odijinfo" style="display: none;">
-        </div>
-      </form>
-      <div slot="actions">
-        <md-text-button form="form-id" id="import_gomb_megse">Mégse</md-text-button>
-        <md-filled-button form="form-id" id="import_gomb_betoltes">Betöltés</md-filled-button>
-      </div>
-    </md-dialog>
   </header>
 
   <main>
@@ -153,6 +109,54 @@
       </table>
     </div>
 
+    <!-- Köszöntő ablak -->
+     <md-dialog id="dialog_koszonto">
+      <div slot="headline">
+        Üdvözöllek az ösztöndíj és átlag kalkulátorban!
+      </div>
+      <div slot="content">
+        <p>Ez egy modern és könnyű kreditindex és ösztöndíj számító, amely segít nyomon követni a tanulmányi előrehaladásodat. A folytatáshoz kattints az "Importálás" gombra, és kövesd a megjelenő utasításokat vagy add hozzá eredményeid manuálisan a "Hozzáadás" gombbal. A kalkulátor automatikusan kiszámolja a kreditindexet, súlyozott átlagot, korrigált kreditindexet és az ösztöndíj összegét a megadott adatok alapján.</p>
+        <div id="checkbox_wrap">
+          <md-checkbox touch-target="wrapper" id="dontshowagain_check" checked></md-checkbox>
+          <label for="dontshowagain_check">Ne mutatsd többet</label>
+        </div>
+      </div>
+      <div slot="actions">
+        <md-filled-button id="koszonto_gomb">Kezdés</md-filled-button>
+      </div>
+    </md-dialog>
+
+    <!-- Importálás ablak -->
+
+    <md-dialog id="dialog_import">
+      <div slot="headline">
+        Adatok importálása Neptunból
+      </div>
+      <form slot="content" id="importform">
+        Lépések:
+        <ol>
+          <li>Lépj be a Neptunba</li>
+          <li>Válaszd ki a Menüből a Tanulmányok > Előrehaladás menüpontot</li>
+          <li>Nyitsd meg a Törzslap opciót és válaszd ki a félévet</li>
+          <li>A jegyek fölött nyitsd meg a ...-menüt és kattints az Export-gombra</li>
+          <li>Válaszd ki az alábbi menüben a letöltött fájlt és a karodat</li>
+          <li>Kattints a Betöltés gombra</li>
+        </ol>
+        <md-filled-button id="import_gomb_fajlvalasztas" type="button">Fájl kiválasztása</md-filled-button>
+        <md-filled-button id="import_gomb_iskolavalasztas" type="button">Kar kiválasztása</md-filled-button>
+        <md-menu id="karvalasztas_menu" anchor="import_gomb_iskolavalasztas" positioning="popover">
+          <md-menu-item data-value="elteik">
+            <div slot="headline">ELTE IK</div>
+          </md-menu-item>
+        </md-menu>
+        <div class="alapinfo" id="odijinfo" style="display: none;">
+        </div>
+      </form>
+      <div slot="actions">
+        <md-text-button form="form-id" id="import_gomb_megse">Mégse</md-text-button>
+        <md-filled-button form="form-id" id="import_gomb_betoltes">Betöltés</md-filled-button>
+      </div>
+    </md-dialog>
 
 
   </main>
